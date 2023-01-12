@@ -3063,6 +3063,10 @@
     "named": false
   },
   {
+    "type": "yield",
+    "named": false
+  },
+  {
     "type": "z",
     "named": false
   },

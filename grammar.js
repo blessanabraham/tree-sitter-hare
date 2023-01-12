@@ -696,7 +696,8 @@ module.exports = grammar ({
     control_statement: $ => choice(
       seq('break', optional($.label)),
       seq('continue', optional($.label)),
-      seq('return', optional($.expression))
+      seq('return', optional($.expression)),
+      seq('yield', optional($.expression)),
     ),
 
     expression: $ => choice(

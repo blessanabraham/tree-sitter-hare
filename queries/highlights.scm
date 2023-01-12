@@ -51,6 +51,7 @@
 "union" @keyword
 "use" @keyword
 "void" @type
+"yield" @keyword
 "..." @special 
 
 "." @operator  
