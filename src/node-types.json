@@ -1488,7 +1488,11 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "binding_names",
+          "named": true
+        },
+        {
+          "type": "expression_list",
           "named": true
         },
         {
@@ -2212,7 +2216,7 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "expression_list",
           "named": true
         }
       ]
@@ -2848,6 +2852,10 @@
   },
   {
     "type": "c",
+    "named": false
+  },
+  {
+    "type": "case",
     "named": false
   },
   {

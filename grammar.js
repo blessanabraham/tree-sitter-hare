@@ -628,13 +628,12 @@ module.exports = grammar ({
     ),
 
     switch_cases: $ => choice(
-      seq($.switch_case, optional(',')), 
-      seq($.switch_case, ',', $.switch_cases)
+      seq($.switch_case, optional($.switch_cases))
     ),
 
     switch_case: $ => choice(
-     seq($.case_options, '=>', $.expression),
-     seq('*', '=>', $.expression),
+     seq('case', $.case_options, '=>', $.expression_list),
+     seq('case', '=>', $.expression_list),
     ),
 
     case_options: $ => choice(
@@ -643,17 +642,17 @@ module.exports = grammar ({
     ),
 
     match_expression: $ => 
-      seq('match', '(', $.expression, ')', '{', $.match_cases,  '}'),
+      seq('match', '(', $.expression, ')', '{', $.match_cases, '}'),
     
     match_cases: $ => choice(
-      seq($.match_case, optional(',')), 
-      seq($.match_case, ',', $.match_cases)
+      seq($.match_case, optional($.match_cases))
     ),
         
     match_case: $ => choice(
-      seq($.name, ':', $.type, '=>', $.expression),
-      seq($.type, '=>', $.expression),
-      seq('*', '=>', $.expression)
+      seq('case', 'let', $.name, ':', $.type, '=>', $.expression_list),
+      seq('case', 'let', '(', $.binding_names, ')', ':', $.type, '=>', $.expression_list),
+      seq('case', $.type, '=>', $.expression_list),
+      seq('case', '=>', $.expression_list)
     ),
 
     assignment: $ => prec.left(PREC.ASSIGNMENT, 

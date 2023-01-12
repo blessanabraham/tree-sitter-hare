@@ -4270,30 +4270,13 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": ","
+                  "type": "SYMBOL",
+                  "name": "switch_cases"
                 },
                 {
                   "type": "BLANK"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "switch_case"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "switch_cases"
             }
           ]
         }
@@ -4306,6 +4289,10 @@
           "type": "SEQ",
           "members": [
             {
+              "type": "STRING",
+              "value": "case"
+            },
+            {
               "type": "SYMBOL",
               "name": "case_options"
             },
@@ -4315,7 +4302,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "expression_list"
             }
           ]
         },
@@ -4324,7 +4311,7 @@
           "members": [
             {
               "type": "STRING",
-              "value": "*"
+              "value": "case"
             },
             {
               "type": "STRING",
@@ -4332,7 +4319,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "expression_list"
             }
           ]
         }
@@ -4428,30 +4415,13 @@
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": ","
+                  "type": "SYMBOL",
+                  "name": "match_cases"
                 },
                 {
                   "type": "BLANK"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "match_case"
-            },
-            {
-              "type": "STRING",
-              "value": ","
-            },
-            {
-              "type": "SYMBOL",
-              "name": "match_cases"
             }
           ]
         }
@@ -4463,6 +4433,14 @@
         {
           "type": "SEQ",
           "members": [
+            {
+              "type": "STRING",
+              "value": "case"
+            },
+            {
+              "type": "STRING",
+              "value": "let"
+            },
             {
               "type": "SYMBOL",
               "name": "name"
@@ -4481,13 +4459,37 @@
             },
             {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "expression_list"
             }
           ]
         },
         {
           "type": "SEQ",
           "members": [
+            {
+              "type": "STRING",
+              "value": "case"
+            },
+            {
+              "type": "STRING",
+              "value": "let"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "binding_names"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            },
+            {
+              "type": "STRING",
+              "value": ":"
+            },
             {
               "type": "SYMBOL",
               "name": "type"
@@ -4498,7 +4500,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "expression_list"
             }
           ]
         },
@@ -4507,7 +4509,11 @@
           "members": [
             {
               "type": "STRING",
-              "value": "*"
+              "value": "case"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "type"
             },
             {
               "type": "STRING",
@@ -4515,7 +4521,24 @@
             },
             {
               "type": "SYMBOL",
-              "name": "expression"
+              "name": "expression_list"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "case"
+            },
+            {
+              "type": "STRING",
+              "value": "=>"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "expression_list"
             }
           ]
         }
